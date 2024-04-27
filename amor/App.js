@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from '/Users/kintonduong/Desktop/amor/amor/pages/LoginScreen.js';
-import HomeScreen from '/Users/kintonduong/Desktop/amor/amor/pages/HomeScreen.js';
+import LoginScreen from 'amor/pages/LoginScreen.js';
+import HomeScreen from 'amor/pages/HomeScreen.js';
 
 const Stack = createNativeStackNavigator();
 
