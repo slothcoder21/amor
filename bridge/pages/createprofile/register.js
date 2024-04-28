@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import UploadImage from './profilePhoto';
 import { TextInput } from 'react-native-gesture-handler';
 
-export default function register({navigation}) {
+export default function Register({navigation}) {
     return(
         <View style={styles.container}>
             <UploadImage/>
