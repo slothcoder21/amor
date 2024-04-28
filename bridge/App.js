@@ -5,6 +5,8 @@ import LoginScreen from './pages/LoginScreen.js';
 import HomeScreen from './pages/HomeScreen.js';
 import SignUpScreen from './pages/SignUpScreen.js';
 import WelcomeScreen from './pages/WelcomeScreen.js';
+//Firebase Imports
+
 
 const Stack = createNativeStackNavigator();
 

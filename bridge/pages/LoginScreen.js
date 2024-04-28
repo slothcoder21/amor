@@ -4,6 +4,9 @@ import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'reac
 function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>
+        log in
+      </Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
@@ -17,7 +20,7 @@ function LoginScreen({ navigation }) {
         style={styles.button}
         onPress={() => navigation.navigate('Home')}
       >
-        <Text style={styles.buttonText}>Log In</Text>
+        <Text style={styles.buttonText}> continue </Text>
       </TouchableOpacity>
     </View>
   );
@@ -29,20 +32,36 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#C9D09A',
+    backgroundColor: '#C9D09A'
+  },
+  title: {
+    fontSize: 40,
+    marginBottom: 20,
+    alignSelf: 'flex-start',
+    color: '#9FA54B'
   },
   input: {
     width: '100%',
     marginVertical: 10,
     padding: 15,
     borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
+    borderColor: '#9FA54B',
+    borderRadius: 25,
+    backgroundColor: '#FFFFFF'
+  },
+  button: {
     backgroundColor: '#FFFFFF',
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 25,
+    width: '50%',
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center', 
   },
   buttonText: {
-    marginTop: 20,
-    fontSize: 18
+    fontSize: 20,
+    color: '#9FA54B'
   }
 });
 

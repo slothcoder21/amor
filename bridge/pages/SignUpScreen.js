@@ -1,9 +1,12 @@
 import React from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 function SignUpScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>
+        sign up
+      </Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -22,10 +25,12 @@ function SignUpScreen({ navigation }) {
         placeholder='Confirm Password'
         secureTextEntry
       />
-      <Button
-        title="Sign Up"
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('Home')}
-      />
+      >
+        <Text style={styles.buttonText}> continue </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -38,14 +43,34 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#C9D09A',
   },
+  title: {
+    fontSize: 40,
+    marginBottom: 20,
+    alignSelf: 'flex-start',
+    color: '#9FA54B'
+  },
   input: {
     width: '100%',
     marginVertical: 10,
-    padding: 15,
+    padding: 15, 
     borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
+    borderColor: '#9FA54B',
+    borderRadius: 25,
     backgroundColor: '#FFFFFF',
+  },
+  button: {
+    backgroundColor: '#FFFFFF',
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 25,
+    width: '50%',
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#9FA54B'
   }
 });
 
