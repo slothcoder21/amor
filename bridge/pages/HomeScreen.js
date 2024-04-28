@@ -7,6 +7,7 @@ function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState('');
 
   const addMessage = (message) => {
     setMessages([...messages, message]);
@@ -52,6 +53,8 @@ function HomeScreen() {
           </TouchableOpacity>
           <TextInput
               style={styles.input}
+              value={inputValue}
+              onChangeText={setInputValue}
               placeholder="type a message!"
               placeholderTextColor="#707070"
               color= '#9FA54B'
@@ -62,10 +65,6 @@ function HomeScreen() {
                 if (nativeEvent.key === 'Enter') {
                   Keyboard.dismiss();
                 }
-              }}
-              onSubmitEditing={(event) => {
-                addMessage(inputValue);
-                setModalVisible(false);
               }}
             />
             <TouchableOpacity onPress={pickImage} style={styles.selectImage}>
@@ -164,7 +163,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   messageBubble: {
-    backgroundColor: '#FFFFF'
+    backgroundColor: '#FFFFF',
+    borderRadius: 20,
+    padding: 10,
+    marginVertical: 5,
+    maxWidth: '80%',
   },
 });
 
