@@ -10,18 +10,50 @@ import Config from 'react-native-config';
 
 
 const Stack = createNativeStackNavigator();
+// function ChatStack() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name = "chat" component = {HomeScreen} />
+//     </Stack.Navigator>
+//   )
+// }
+
+// function RootNavigator() {
+//   return (
+//     <NavigationContainer>
+//       <ChatStack/>
+//      </NavigationContainer>
+//   );
+// }
+
+// export default function App() {
+//   return (
+//        <NavigationContainer>
+//          <Stack.Navigator>
+//             {/* <Stack.Screen name="Welcome" component={WelcomeScreen} />
+//              <Stack.Screen name="Login" component={LoginScreen} /> */}
+//              <Stack.Screen name="Home" component={HomeScreen} />
+//              {/* <Stack.Screen name="SignUp" component={SignUpScreen} /> */}
+//            </Stack.Navigator>
+//          </NavigationContainer>
+//        );
+//     }
+
+
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
+         <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} /> 
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
+         <Stack.Screen name="SignUp" component={SignUpScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 export default App;
+
+
