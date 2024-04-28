@@ -1,9 +1,13 @@
 import React from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
-function LoginScreen({ navigation }) {
+function SignUpScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+      />
       <TextInput
         style={styles.input}
         placeholder="Username"
@@ -13,8 +17,13 @@ function LoginScreen({ navigation }) {
         placeholder="Password"
         secureTextEntry
       />
+      <TextInput
+        style={styles.input}
+        placeholder='Confirm Password'
+        secureTextEntry
+      />
       <Button
-        title="Log In"
+        title="Sign Up"
         onPress={() => navigation.navigate('Home')}
       />
     </View>
@@ -40,4 +49,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginScreen
+export default SignUpScreen;
