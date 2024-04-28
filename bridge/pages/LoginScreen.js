@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 function LoginScreen({ navigation }) {
   return (
@@ -13,10 +13,12 @@ function LoginScreen({ navigation }) {
         placeholder="Password"
         secureTextEntry
       />
-      <Button
-        title="Log In"
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('Home')}
-      />
+      >
+        <Text style={styles.buttonText}>Log In</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -37,6 +39,10 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 5,
     backgroundColor: '#FFFFFF',
+  },
+  buttonText: {
+    marginTop: 20,
+    fontSize: 18
   }
 });
 
