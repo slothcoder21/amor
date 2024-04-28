@@ -75,6 +75,7 @@ function HomeScreen() {
               onPress={() => {
                 addMessage(inputValue);
                 setModalVisible(false);
+                setInputValue('');
               }} 
               style={styles.submitbutton}>
               <Text style={styles.submitbuttonText}>submit</Text>
