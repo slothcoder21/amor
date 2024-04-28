@@ -34,6 +34,7 @@ function ChatStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name = "Home" component = {HomeScreen} />
+      <Stack.Screen name = "Register" component = {Register} />
     </Stack.Navigator>
   )
 }
@@ -45,7 +46,6 @@ function AuthStack() {
       <Stack.Screen name = "Login" component = {LoginScreen} />
       <Stack.Screen name = "SignUp" component = {SignUpScreen} />
       <Stack.Screen name="Profile" component={ProfilePhoto}/>
-      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   )
 }
