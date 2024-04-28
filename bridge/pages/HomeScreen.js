@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Modal, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Button, TextInput } from 'react-native';
 
 function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -22,6 +22,13 @@ function HomeScreen() {
               <Text style={styles.text2}>X</Text>
             </View>
           </TouchableOpacity>
+          <TextInput
+              style={styles.input}
+              placeholder="type a message!"
+              placeholderTextColor="#707070"
+              returnKeyType="done"
+              color= '#9FA54B'
+            />
         </View>
       </Modal>
     </View>
@@ -70,7 +77,16 @@ const styles = StyleSheet.create({
   text2: {
     fontSize: 30,
     color: '#FFFFFF',
-  }
+  },
+  input: {
+    width: '80%',
+    marginVertical: 10,
+    padding: 15,
+    borderWidth: 1,
+    borderColor: '#9FA54B',
+    borderRadius: 25,
+    backgroundColor: '#FFFFFF'
+  },
 });
 
 export default HomeScreen;
