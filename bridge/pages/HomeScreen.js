@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   messageBubble: {
-    backgroundColor: '#FFFFF',
+    backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 10,
     marginVertical: 5,
