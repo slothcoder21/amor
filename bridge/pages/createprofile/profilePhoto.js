@@ -49,7 +49,7 @@ export default function UploadImage() {
 
   return (
     <View style={styles.container}>
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+      {image && <Image source={{ uri: image }} style={[styles.image, styles.uploadedImage]} />}
       <View style={styles.uploadBtnContainer}>
         <TouchableOpacity onPress={pickImage} style={styles.uploadBtn}>
           <Text style={{ color: 'white' }}>{image ? 'Edit' : 'Upload'} Image</Text>
@@ -70,6 +70,14 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     overflow: 'hidden',
     marginVertical: 90
+  },
+  uploadedImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 1 // Ensure the image is displayed on top
   },
   uploadBtnContainer: {
     opacity: 0.7,
