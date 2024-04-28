@@ -1,16 +1,18 @@
-import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator} from 'react-native';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { View, ActivityIndicator } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { onAuthStateChanged } from 'firebase/auth';
+
+
 import LoginScreen from './pages/LoginScreen.js';
 import HomeScreen from './pages/HomeScreen.js';
 import SignUpScreen from './pages/SignUpScreen.js';
 import WelcomeScreen from './pages/WelcomeScreen.js';
 import ProfilePhoto from './pages/createprofile/profilePhoto.js';
 import Register from './pages/createprofile/register.js';
+
+
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { auth } from './config/firebase.js';
 

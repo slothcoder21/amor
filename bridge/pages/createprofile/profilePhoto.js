@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import firebase from '../../server/FirebaseConfig'; // Adjust the import path based on your project structure
+import { auth } from '../../config/firebase.js';
 
 export default function UploadImage() {
   const [image, setImage] = useState(null);
@@ -37,7 +37,7 @@ export default function UploadImage() {
     const blob = await response.blob();
 
     const filename = uri.substring(uri.lastIndexOf('/') + 1);
-    const storageRef = firebase.storage().ref().child('profile_photos/' + filename);
+    const storageRef = auth.storage().ref().child('profile_photos/' + filename);
 
     try {
       await storageRef.put(blob);
