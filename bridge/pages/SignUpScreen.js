@@ -1,39 +1,97 @@
-import React from 'react';
-import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import React, { useState }from 'react';
+import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text, Alert} from 'react-native';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-function SignUpScreen({ navigation }) {
+export default function SignUp({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onHandleSignUp = () => {
+    if (email !== "" && username !== "" && password !== "") {
+      createUserWithEmailAndPassword(auth, email, username, password)
+      .then(() => console.log("Sign Up success"))
+      .catch((err) => Alert.alert("Sign Up error", err.message));
+    }
+  };
+
   return (
     <View style={styles.container}>
+      <SafeAreaView></SafeAreaView>
       <Text style={styles.title}>
         sign up
       </Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
+        autoCapitalize='none'
+        keyboardType='email-address'
+        textContentType='emailAddress'
+        autoFocus={true}
+        value={email}
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Username"
+        autoCapitalize='none'
+        autoFocus={true}
+        value={username}
+        onChangeText={(text) => setUsername(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
-        secureTextEntry
+        autoCapitalize="none"
+        autoCorrect={false}
+        secureTextEntry={true}
+        textContentType="password"
+        value={password}
+        onChangeText={(text) => setPassword(text)}
       />
-      <TextInput
-        style={styles.input}
-        placeholder='Confirm Password'
-        secureTextEntry
-      />
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Home')}
-      >
+      <TouchableOpacity style={styles.button} onPress={(onHandleSignUp)}>
         <Text style={styles.buttonText}> continue </Text>
       </TouchableOpacity>
     </View>
-  );
+  )
 }
+
+
+// function SignUpScreen({ navigation }) {
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.title}>
+//         sign up
+//       </Text>
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Email"
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Username"
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Password"
+//         secureTextEntry
+//       />
+//       <TextInput
+//         style={styles.input}
+//         placeholder='Confirm Password'
+//         secureTextEntry
+//       />
+//       <TouchableOpacity
+//         style={styles.button}
+//         onPress={() => navigation.navigate('Home')}
+//       >
+//         <Text style={styles.buttonText}> continue </Text>
+//       </TouchableOpacity>
+//     </View>
+//   );
+// }
 
 const styles = StyleSheet.create({
   container: {
@@ -74,4 +132,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignUpScreen;
+//export default SignUpScreen;

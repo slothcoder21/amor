@@ -1,30 +1,75 @@
-import React from 'react';
-import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import React, { useState }from 'react';
+import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text, Alert} from 'react-native';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-function LoginScreen({ navigation }) {
+export default function Login({ navigation }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onHandleLogin = () => {
+    if (username !== "" && password !== "") {
+      signInWithEmailAndPassword(auth, username, password)
+      .then(() => console.log("Login success"))
+      .catch((err) => Alert.alert("Login error", err.message));
+    }
+  };
+
   return (
     <View style={styles.container}>
+      <SafeAreaView></SafeAreaView>
       <Text style={styles.title}>
         log in
       </Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
+        autoCapitalize='none'
+        autoFocus={true}
+        value={username}
+        onChangeText={(text) => setUsername(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
-        secureTextEntry
+        autoCapitalize="none"
+        autoCorrect={false}
+        secureTextEntry={true}
+        textContentType="password"
+        value={password}
+        onChangeText={(text) => setPassword(text)}
       />
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Home')}
-      >
+      <TouchableOpacity style={styles.button} onPress={(onHandleLogin)}>
         <Text style={styles.buttonText}> continue </Text>
       </TouchableOpacity>
     </View>
-  );
+  )
 }
+// function LoginScreen({ navigation }) {
+//   return (
+    // <View style={styles.container}>
+    //   <Text style={styles.title}>
+    //     log in
+    //   </Text>
+    //   <TextInput
+    //     style={styles.input}
+    //     placeholder="Username"
+    //   />
+    //   <TextInput
+    //     style={styles.input}
+    //     placeholder="Password"
+    //     secureTextEntry
+    //   />
+    //   <TouchableOpacity
+    //     style={styles.button}
+    //     onPress={() => navigation.navigate('Home')}
+    //   >
+    //     <Text style={styles.buttonText}> continue </Text>
+    //   </TouchableOpacity>
+    // </View>
+//   );
+// }
 
 const styles = StyleSheet.create({
   container: {
@@ -65,4 +110,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginScreen;
+// export default LoginScreen;
