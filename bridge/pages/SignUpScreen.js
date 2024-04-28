@@ -27,7 +27,7 @@ function SignUpScreen({ navigation }) {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Register')}
       >
         <Text style={styles.buttonText}> continue </Text>
       </TouchableOpacity>
