@@ -10,7 +10,7 @@ function HomeScreen() {
   const [inputValue, setInputValue] = useState('');
 
   const addMessage = (message) => {
-    setMessages([...messages, message]);
+    setMessages([message, ...messages]);
   };
 
   const renderMessages = () => {
@@ -36,7 +36,7 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>Welcome to the Home Page!</Text>
+      <Text style={styles.text0}>you and your family's thread</Text>
       <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.button}>
       <View style={styles.circle}>
         <Text style={styles.text}>+</Text>
@@ -45,7 +45,7 @@ function HomeScreen() {
 
       <Modal visible={modalVisible} animationType="slide" transparent>
         <View style={styles.modal}>
-          <Text>This is a modal!</Text>
+          <Text>add to thread</Text>
           <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.button}>
             <View style={styles.circle2}>
               <Text style={styles.text2}>X</Text>
@@ -109,6 +109,14 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
     backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#9FA54B'
+  },
+  text0: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    marginTop: 20,
+    marginLeft: -100
   },
   text: {
     fontSize: 30,
@@ -149,7 +157,8 @@ const styles = StyleSheet.create({
     left: -110,
   },
   selectImageText: {
-    fontSize: 15
+    fontSize: 15,
+    textDecorationLine: 'underline'
   },
   submitbutton: {
     bottom: -40,
@@ -166,8 +175,11 @@ const styles = StyleSheet.create({
   messageBubble: {
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
-    padding: 5,
-    marginVertical: 5,
+    padding: 10,
+    paddingLeft: 20,
+    paddingBottom: 0,
+    paddingTop: 15,
+    marginVertical: 10,
     width: '80%',
   },
   text3: {

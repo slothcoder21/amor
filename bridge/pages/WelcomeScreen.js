@@ -4,9 +4,9 @@ import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from 'react-n
 function WelcomeScreen({ navigation }) {
   return (
       <View style={styles.container}>
-        <Text style={{fontSize: 70, color: '#9FA54B'}}>
-          b r i d g e
-        </Text>
+        <View style={{ position: 'absolute'}}>
+          <Image source={require('../assets/bridge.jpg')} style={{marginTop: -150}}/>
+        </View>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Login')}>
@@ -18,7 +18,10 @@ function WelcomeScreen({ navigation }) {
           color= '#9FA54B'
           onPress={() => navigation.navigate('SignUp')}
         />
+        <View style={{ position: 'absolute', bottom: 0 }}>
+          <Image source={require('../assets/wave.jpg')} style={{ width: 500, marginBottom: -50 }}/>
         </View>
+      </View>
   );
 }
 
