@@ -1,32 +1,59 @@
 import React from 'react';
-import { ScrollView, View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import { ScrollView, View, TextInput, Button, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView} from 'react-native';
+import {BRIDGE_AUTH} from '../../bridge/FirebaseConfig'
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function LoginScreen({ navigation }) {
+
+  const[email, setEmail] = useState('');
+  const[password, setPassword] = useState('');
+  const[loading, setLoading] = useState(false);
+  const auth = BRIDGE_AUTH;
+
+  const signIn = async() => {
+    setLoading(True);
+    try {
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      console.log(response);
+    }
+    catch (error) {
+      console.log(error);
+      alert('Sign in failed: ' + error);
+    }
+    finally{
+      setLoading(false);
+    }
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.container}>
-        <Text style={styles.title}>
-          log in
-        </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          returnKeyType="done"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry
-          returnKeyType="done"
-        />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Home')}
-        >
-          <Text style={styles.buttonText}> continue </Text>
-        </TouchableOpacity>
-      </View>
+      <KeyboardAvoidingView>
+        <View style={styles.container}>
+          <Text style={styles.title}>
+            log in
+          </Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Username"
+            autoCapitalize='none'
+            returnKeyType="done"
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            secureTextEntry="true"
+            returnKeyType="done"
+          />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Home')}
+          >
+            <Text style={styles.buttonText}> continue </Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
     </ScrollView>
+    
   );
 }
 
