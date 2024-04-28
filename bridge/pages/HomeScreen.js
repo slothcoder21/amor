@@ -75,6 +75,7 @@ function HomeScreen() {
               onPress={() => {
                 addMessage(inputValue);
                 setModalVisible(false);
+                setInputValue('');
               }} 
               style={styles.submitbutton}>
               <Text style={styles.submitbuttonText}>submit</Text>
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   messageBubble: {
-    backgroundColor: '#FFFFF',
+    backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 10,
     marginVertical: 5,
