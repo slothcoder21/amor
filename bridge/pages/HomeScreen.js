@@ -13,7 +13,7 @@ function HomeScreen() {
   const addMessage = (message) => {
     setMessages([...messages, message]);
   };
-
+  
   const renderMessages = () => {
     return messages.map((message, index) => (
       <View key={index} style={styles.messageBubble}>
