@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 
 function WelcomeScreen({ navigation }) {
   return (
@@ -7,10 +7,11 @@ function WelcomeScreen({ navigation }) {
       <Text style={{fontSize: 70, color: '#9FA54B'}}>
         b r i d g e
       </Text>
-      <Button
-        title="log in"
-        onPress={() => navigation.navigate('Login')}
-      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Login')}>
+        <Text style={styles.buttonText}>Log In</Text>
+      </TouchableOpacity>
       <Button
         title="new to bridge? sign up"
         onPress={() => navigation.navigate('Home')}
@@ -35,6 +36,20 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 5,
     backgroundColor: '#FFFFFF',
+  },
+  button: {
+    backgroundColor: '#FFFFFF',
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 25,
+    width: '50%',
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#9FA54B',
   }
 });
 
