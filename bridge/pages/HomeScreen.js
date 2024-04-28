@@ -16,7 +16,7 @@ function HomeScreen() {
   const renderMessages = () => {
     return messages.map((message, index) => (
       <View key={index} style={styles.messageBubble}>
-        <Text>{message}</Text>
+        <Text style={styles.text3}>{message}</Text>
       </View>
     ));
   };
@@ -166,10 +166,14 @@ const styles = StyleSheet.create({
   messageBubble: {
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
-    padding: 10,
+    padding: 5,
     marginVertical: 5,
-    maxWidth: '80%',
+    width: '80%',
   },
+  text3: {
+    fontSize: 15,
+    color: '#9FA54B',
+  }
 });
 
 export default HomeScreen;
