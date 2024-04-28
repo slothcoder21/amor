@@ -1,13 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Button } from 'react-native';
 
 function HomeScreen() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.container}>
       <Text>Welcome to the Home Page!</Text>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>+</Text>
+      <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.button}>
+      <View style={styles.circle}>
+        <Text style={styles.text}>+</Text>
+      </View>
       </TouchableOpacity>
+
+      <Modal visible={modalVisible} animationType="slide" transparent>
+        <View style={styles.modal}>
+          <Text>This is a modal!</Text>
+          <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.button}>
+            <View style={styles.circle2}>
+              <Text style={styles.text2}>X</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -21,16 +37,40 @@ const styles = StyleSheet.create({
   },
   button: {
     position: 'absolute',
-    top: 20,
+    top: 30,
     right: 20,
-    backgroundColor: '#9FA54B',
-    borderRadius: 50,
-    padding: 10,
+    zIndex: 999,
   },
-  buttonText: {
-    color: '#FFFFFF',
+  circle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#FFFFFF',
+  },
+  text: {
     fontSize: 30,
+    color: '#9FA54B',
   },
+  modal: {
+    backgroundColor: '#FFFFFF',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  circle2: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#9FA54B',
+  },
+  text2: {
+    fontSize: 30,
+    color: '#FFFFFF',
+  }
 });
 
 export default HomeScreen;
