@@ -3,8 +3,9 @@ import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text, Alert} fro
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native'; 
 
-export default function SignUp({ navigation }) {
+export default function SignUp({navigation}) {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -56,7 +57,8 @@ export default function SignUp({ navigation }) {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <TouchableOpacity style={styles.button} onPress={(onHandleSignUp)}>
+      <TouchableOpacity style={styles.button} 
+      onPress = {(onHandleSignUp)}>
         <Text style={styles.buttonText}> continue </Text>
       </TouchableOpacity>
     </View>
