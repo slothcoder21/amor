@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Button, TextInput, Keyboard, ScrollView } from 'react-native';
@@ -12,7 +13,7 @@ function HomeScreen() {
   const addMessage = (message) => {
     setMessages([message, ...messages]);
   };
-
+  
   const renderMessages = () => {
     return messages.map((message, index) => (
       <View key={index} style={styles.messageBubble}>
@@ -29,7 +30,7 @@ function HomeScreen() {
       quality: 1,
     });
 
-    if (!result.cancelled) {
+    if (!result.canceled) {
       setImage(result.uri);
     }
   };
