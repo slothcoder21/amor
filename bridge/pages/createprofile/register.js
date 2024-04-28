@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import UploadImage from './profilePhoto';
 import { TextInput } from 'react-native-gesture-handler';
 
-export default function register() {
+export default function register({navigation}) {
     return(
         <View style={styles.container}>
             <UploadImage/>
@@ -15,16 +15,23 @@ export default function register() {
                 style={styles.input}
                 placeholder= "last name"
             />
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('Home')}
+            >
+                <Text style={styles.buttonText}> continue </Text>
+            </TouchableOpacity>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        padding: 50,
-        backgroundColor: '#9FA54B',
-        alignItems: 'center',
+        flex: 1,
         justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+        backgroundColor: '#C9D09A'
     },
 
     input: {
@@ -35,5 +42,19 @@ const styles = StyleSheet.create({
         borderColor: '#9FA54B',
         borderRadius: 25,
         backgroundColor: '#FFFFFF',
-    }
+    },
+    button: {
+        backgroundColor: '#FFFFFF',
+        padding: 10,
+        marginVertical: 10,
+        borderRadius: 25,
+        width: '50%',
+        height: 45,
+        justifyContent: 'center',
+        alignItems: 'center', 
+      },
+      buttonText: {
+        fontSize: 20,
+        color: '#9FA54B'
+      }
 });

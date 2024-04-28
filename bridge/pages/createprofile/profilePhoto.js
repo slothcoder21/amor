@@ -16,6 +16,15 @@ export default function UploadImage() {
         if(!_image.canceled){
             setImage(_image.uri);
         }
+    const checkForCameraRollPerimission = async() => {
+        const {status} = await ImagePicker.getMediaLibraryPermissionsAsync();
+        if(status !== 'granted') {
+            alert("please grant camera roll acess.")
+        }
+        else {
+            console.log('Media Perimissions are granted.')
+        }
+    }
     };
     return (
         <View style={styles.container}>
@@ -42,6 +51,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     borderRadius: 999,
     overflow: 'hidden',
+    marginVertical: 90
   },
 
   uploadBtnContainer: {
