@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import { View, TextInput, Button, StyleSheet } from 'react-native';
 
-function LoginScreen({ navigation }) {
+function SignUpScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+      />
       <TextInput
         style={styles.input}
         placeholder="Username"
@@ -13,12 +17,15 @@ function LoginScreen({ navigation }) {
         placeholder="Password"
         secureTextEntry
       />
-      <TouchableOpacity
-        style={styles.button}
+      <TextInput
+        style={styles.input}
+        placeholder='Confirm Password'
+        secureTextEntry
+      />
+      <Button
+        title="Sign Up"
         onPress={() => navigation.navigate('Home')}
-      >
-        <Text style={styles.buttonText}>Log In</Text>
-      </TouchableOpacity>
+      />
     </View>
   );
 }
@@ -39,11 +46,7 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 5,
     backgroundColor: '#FFFFFF',
-  },
-  buttonText: {
-    marginTop: 20,
-    fontSize: 18
   }
 });
 
-export default LoginScreen;
+export default SignUpScreen;

@@ -14,7 +14,7 @@ function WelcomeScreen({ navigation }) {
       </TouchableOpacity>
       <Button
         title="new to bridge? sign up"
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('SignUp')}
       />
     </View>
   );
