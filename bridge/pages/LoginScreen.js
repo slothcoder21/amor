@@ -1,32 +1,40 @@
 import React from 'react';
-import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import { ScrollView, View, TextInput, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 function LoginScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        log in
-      </Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-      />
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Home')}
-      >
-        <Text style={styles.buttonText}> continue </Text>
-      </TouchableOpacity>
-    </View>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <View style={styles.container}>
+        <Text style={styles.title}>
+          log in
+        </Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          returnKeyType="done"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          returnKeyType="done"
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Home')}
+        >
+          <Text style={styles.buttonText}> continue </Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    backgroundColor: '#C9D09A',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',

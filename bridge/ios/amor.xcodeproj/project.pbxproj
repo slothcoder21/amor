@@ -15,6 +15,7 @@
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		9180C6BDABD245F8BEB3E973 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FEED8A59904950A618DD70 /* noop-file.swift */; };
+		9E31666D06B14296B12B5815 /* Winkle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB062CA8D8884679B98D16F4 /* Winkle-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-amor/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		07FEED8A59904950A618DD70 /* noop-file.swift */ = {isa = PBXFileReference; name = "noop-file.swift"; path = "amor/noop-file.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 		3590A02E3D2345F9A79C7ACB /* amor-Bridging-Header.h */ = {isa = PBXFileReference; name = "amor-Bridging-Header.h"; path = "amor/amor-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AB062CA8D8884679B98D16F4 /* Winkle-Regular.ttf */ = {isa = PBXFileReference; name = "Winkle-Regular.ttf"; path = "../assets/fonts/Winkle-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
+				D52FB0D6C1214244AB442FDE /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +138,15 @@
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
+		};
+		D52FB0D6C1214244AB442FDE /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				AB062CA8D8884679B98D16F4 /* Winkle-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -199,6 +211,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				18432C66581E4B97A787B035 /* amor-Bridging-Header.h in Resources */,
+				9E31666D06B14296B12B5815 /* Winkle-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,28 +1,24 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import Video from 'react-native-video';
 
 function WelcomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('../assets/curvebridge.png')}
-        style={styles.logo}
-      />
-      <Text style={{fontSize: 70, color: '#9FA54B'}}>
-        b r i d g e
-      </Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Login')}>
-        <Text style={styles.buttonText}>log in</Text>
-      </TouchableOpacity>
-      
-      <Button
-        title="new to bridge? sign up"
-        onPress={() => navigation.navigate('SignUp')}
-      />
-    </View>
+      <View style={styles.container}>
+        <Text style={{fontSize: 70, color: '#9FA54B'}}>
+          b r i d g e
+        </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.buttonText}>log in</Text>
+        </TouchableOpacity>
+        
+        <Button
+          title="new to bridge? sign up"
+          color= '#9FA54B'
+          onPress={() => navigation.navigate('SignUp')}
+        />
+        </View>
   );
 }
 
@@ -32,13 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#C9D09A',
-  },
-  logo: {
-    width: 500, // set the width of the image to make it smaller
-    height: 150, // set the height of the image to make it smaller
-    marginBottom: 20, // add some margin below the image
-    opacity: 0.3,
+    backgroundColor: '#C9D09A'
   },
   input: {
     width: '100%',
