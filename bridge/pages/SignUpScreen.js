@@ -10,8 +10,8 @@ export default function SignUp({ navigation }) {
   const [password, setPassword] = useState("");
 
   const onHandleSignUp = () => {
-    if (email !== "" && username !== "" && password !== "") {
-      createUserWithEmailAndPassword(auth, email, username, password)
+    if (email !== "" && password !== "") {
+      createUserWithEmailAndPassword(auth, email, password)
       .then(() => console.log("Sign Up success"))
       .catch((err) => Alert.alert("Sign Up error", err.message));
     }
@@ -33,14 +33,14 @@ export default function SignUp({ navigation }) {
         value={email}
         onChangeText={(text) => setEmail(text)}
       />
-      <TextInput
+      {/* <TextInput
         style={styles.input}
         placeholder="Username"
         autoCapitalize='none'
         autoFocus={true}
         value={username}
         onChangeText={(text) => setUsername(text)}
-      />
+      /> */}
       <TextInput
         style={styles.input}
         placeholder="Password"

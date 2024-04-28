@@ -5,12 +5,12 @@ import { auth } from "../config/firebase";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Login({ navigation }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onHandleLogin = () => {
-    if (username !== "" && password !== "") {
-      signInWithEmailAndPassword(auth, username, password)
+    if (email !== "" && password !== "") {
+      signInWithEmailAndPassword(auth, email, password)
       .then(() => console.log("Login success"))
       .catch((err) => Alert.alert("Login error", err.message));
     }
@@ -24,11 +24,11 @@ export default function Login({ navigation }) {
       </Text>
       <TextInput
         style={styles.input}
-        placeholder="Username"
+        placeholder="Email"
         autoCapitalize='none'
         autoFocus={true}
-        value={username}
-        onChangeText={(text) => setUsername(text)}
+        value={email}
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         style={styles.input}
