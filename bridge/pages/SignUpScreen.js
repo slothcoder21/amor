@@ -15,7 +15,6 @@ export default function SignUp({navigation}) {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           console.log("Sign Up success");
-          // Navigate to the Register screen after successful sign up
           navigation.navigate('Register');
         })
         .catch((err) => Alert.alert("Sign Up error", err.message));

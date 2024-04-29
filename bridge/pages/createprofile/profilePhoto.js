@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: '100%',
     height: '100%',
-    zIndex: 1 // Ensure the image is displayed on top
+    zIndex: 1 
   },
   uploadBtnContainer: {
     opacity: 0.7,
