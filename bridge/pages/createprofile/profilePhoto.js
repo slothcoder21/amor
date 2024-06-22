@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import { auth } from '../../config/firebase.js';
+import { auth, firebase } from '../../config/firebase.js';
+
 
 export default function UploadImage() {
   const [image, setImage] = useState(null);
@@ -12,7 +13,7 @@ export default function UploadImage() {
   }, []);
 
   const getCameraRollPermission = async () => {
-    const { status } = await ImagePicker.getMediaLibraryPermissionsAsync();
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
       Alert.alert('Permission required', 'Please grant camera roll access to upload images.');
     }
@@ -27,35 +28,41 @@ export default function UploadImage() {
     });
 
     if (!result.cancelled) {
-      setImage(result.uri);
-      uploadImage(result.uri);
+      const source = { uri: result.assets[0].uri };
+      console.log('Photo picked', source);
+      setImage(source);
     }
   };
 
   const uploadImage = async (uri) => {
     const response = await fetch(uri);
     const blob = await response.blob();
-
     const filename = uri.substring(uri.lastIndexOf('/') + 1);
-    const storageRef = auth.storage().ref().child('profile_photos/' + filename);
+    const ref = firebase.storage().ref().child(filename);
 
     try {
-      await storageRef.put(blob);
-      console.log('Image uploaded successfully.');
-    } catch (error) {
-      console.error('Error uploading image: ', error);
+      await ref.put(blob);
+      Alert.alert('Profile Picture Set');
+      setImage(null);
+    } catch (err) {
+      console.log(err);
     }
   };
 
   return (
     <View style={styles.container}>
-      {image && <Image source={{ uri: image }} style={[styles.image, styles.uploadedImage]} />}
+      {image && <Image source={{ uri: image.uri }} style={[styles.image, styles.uploadedImage]} />}
       <View style={styles.uploadBtnContainer}>
         <TouchableOpacity onPress={pickImage} style={styles.uploadBtn}>
           <Text style={{ color: 'white' }}>{image ? 'Edit' : 'Upload'} Image</Text>
           <AntDesign name="camera" size={20} color="white" />
         </TouchableOpacity>
       </View>
+      {image && (
+        <TouchableOpacity onPress={() => uploadImage(image.uri)} style={styles.uploadBtn}>
+          <Text style={{ color: 'white' }}>Upload to Firebase</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
@@ -93,6 +100,14 @@ const styles = StyleSheet.create({
   uploadBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+    backgroundColor: '#9FA54B',
+    padding: 10,
+    marginTop: 10,
+    borderRadius: 5,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
 });
